@@ -1,7 +1,7 @@
 import string
 alphabet = list(string.ascii_lowercase)
 
-
+#not very readable
 def ceasar_cipher(s):
     s = list(s.lower())
     for c1, char1 in enumerate(s):
@@ -9,5 +9,9 @@ def ceasar_cipher(s):
             if char2 == char1:
                 pos = c2
                 break
-        s[c1] = alphabet[pos + 1]
+        
+        if pos == len(alphabet) - 1:
+            s[c1] = 'a'
+        else:
+            s[c1] = alphabet[pos + 1]
     return ''.join(s)
